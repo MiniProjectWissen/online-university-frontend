@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 ">
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">User Registration</span>
+            <form (ngSubmit)="submitForm(registrationForm)" #registrationForm="ngForm">
+              <div class="input-field">
+                <input id="first_name" type="text" name="first_name" class="validate" [(ngModel)]="registrationData.first_name" required>
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field">
+                <input id="last_name" type="text" name="last_name" class="validate" [(ngModel)]="registrationData.last_name" required>
+                <label for="last_name">Last Name</label>
+              </div>
+              <div class="input-field">
+                <input id="email" type="email" name="email" class="validate" [(ngModel)]="registrationData.email" required>
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field">
+                <input id="password" type="password" name="password" class="validate" [(ngModel)]="registrationData.password" required>
+                <label for="password">Password</label>
+              </div>
+              <div class="input-field">
+                <input id="address" type="text" name="address" class="validate" [(ngModel)]="registrationData.address">
+                <label for="address">Address</label>
+              </div>
+              <div class="input-field">
+                <input id="phone_number" type="text" name="phone_number" class="validate" [(ngModel)]="registrationData.phone_number">
+                <label for="phone_number">Phone Number (+91)</label>
+              </div>
+              
+              <div class="input-field">
+                <p id=Gender>Gender<p>
+                <div class="gender-radio">
+                  <p>
+                    <label>
+                      <input name="gender" type="radio" value="male" [(ngModel)]="registrationData.gender" />
+                      <span>Male</span>
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      <input name="gender" type="radio" value="female" [(ngModel)]="registrationData.gender" />
+                      <span>Female</span>
+                    </label>
+                  </p>
+                </div>
+                
+              </div>
+              
+              
+              
+              <div class="input-field">
+                <input id="dob" type="date" name="dob" class="validate" [(ngModel)]="registrationData.dob">
+                <label for="dob">Date of Birth</label>
+              </div>
+              <div class="input-field">
+                <input id="roll_no" type="text" name="roll_no" class="validate" [(ngModel)]="registrationData.roll_no" required pattern="[0-9]{4}">
+                <label for="roll_no">Roll No (eg:8134)</label>
+              </div>
+              <div class="input-field">
+                <input id="standard" type="number" name="standard" class="validate" [(ngModel)]="registrationData.standard" required min="1" max="17">
+                <label for="standard">Standard (1-15)</label>
+              </div>
+              <button type="submit" class="btn waves-effect waves-light" [disabled]="!registrationForm.valid">Register
+                <i class="material-icons right">send</i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
