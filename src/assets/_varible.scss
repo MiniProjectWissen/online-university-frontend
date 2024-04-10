@@ -1,0 +1,26 @@
+// Colors
+$primary-color: #4CAF50; // Green
+$secondary-color: #FFC107; // Yellow
+$success-color: #2196F3; // Blue
+$danger-color: #FF5722; // Red
+$warning-color: #FF9800; // Orange
+$info-color: #9C27B0; // Purple
+$light-color: #F5F5F5; // Light Gray
+$dark-color: #212121; // Dark Gray
+
+// Fonts
+$body-font: 'Roboto', sans-serif;
+$heading-font: 'Roboto', sans-serif;
+
+// Spacing
+$spacing-xs: 8px; // Increased from 4px for slightly more breathing room
+$spacing-sm: 16px; // Increased from 8px for slightly more breathing room
+$spacing-md: 24px; // Increased from 16px for more separation between elements
+$spacing-lg: 32px; // Increased from 24px for more separation between sections
+$spacing-xl: 48px; // Increased from 32px for more separation between major sections
+
+// Breakpoints
+$breakpoint-sm: 576px; // Small screens
+$breakpoint-md: 768px; // Medium screens
+$breakpoint-lg: 992px; // Large screens
+$breakpoint-xl: 1200px; // Extra large screens

@@ -1,0 +1,29 @@
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: #ffffff; /* White text color */
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    color: #f8f9fa; /* Light color */
+  }
+  

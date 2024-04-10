@@ -1,0 +1,41 @@
+// Mixins
+
+// Centering element horizontally and vertically
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  // Clearfix
+  @mixin clearfix {
+    &::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  }
+  
+  // Vendor prefix mixin for flexbox
+  @mixin flexbox() {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  // Vendor prefix mixin for flexbox with alignment options
+  @mixin flexbox($justify, $align) {
+    @include flexbox();
+    justify-content: $justify;
+    align-items: $align;
+  }
+  
+  // Transition mixin
+  @mixin transition($property, $duration, $timing: ease) {
+    -webkit-transition: $property $duration $timing;
+    -moz-transition: $property $duration $timing;
+    -o-transition: $property $duration $timing;
+    transition: $property $duration $timing;
+  }
+  
