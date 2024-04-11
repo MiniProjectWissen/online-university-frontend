@@ -11,6 +11,8 @@ import { HeaderComponent } from './shared/component/header/header.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { ModalComponent } from './shared/component/modal/modal.component';
+import { StudentProfileComponent } from './screens/student-profile/student-profile.component';
+import { StudentDashboardComponent } from './screens/student-dashboard/student-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ModalComponent } from './shared/component/modal/modal.component';
          HeaderComponent,
          FooterComponent,
          LoaderComponent,
-         ModalComponent
+         ModalComponent,
+         StudentProfileComponent,
+         StudentDashboardComponent
   ],
   imports: [
     BrowserModule,
