@@ -18,11 +18,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './service/auth.service';
 import { StudentService } from './service/student.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatIconModule } from '@angular/material/icon'; 
 import { StudentProfileComponent } from './screens/student-profile/student-profile.component';
 import { StudentDashboardComponent } from './screens/student-dashboard/student-dashboard.component';
 import { CourseService } from './service/course.service';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -33,15 +33,14 @@ import { CourseService } from './service/course.service';
          FooterComponent,
          LoaderComponent,
          ModalComponent,
-
          StudentProfileComponent,
          StudentDashboardComponent,
          EnrolledCoursesComponent,
          CourseComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule
+    BrowserModule,AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,
+    MatGridListModule,MatIconModule
 
   ],
   providers: [AuthService,StudentService,CourseService],

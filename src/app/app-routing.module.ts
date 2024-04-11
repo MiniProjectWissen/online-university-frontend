@@ -5,6 +5,7 @@ import { LoginComponent } from './screens/login/login.component';
 import { StudentDashboardComponent } from './screens/student-dashboard/student-dashboard.component';
 import { StudentProfileComponent } from './screens/student-profile/student-profile.component';
 import { EnrolledCoursesComponent } from './screens/enrolled-courses/enrolled-courses.component';
+import { CourseComponent } from './screens/course/course.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: '', component: StudentDashboardComponent, outlet: 'primary' },
   { path: 'profile', component: StudentProfileComponent, outlet: 'primary' },
   { path: 'enrolledCourses', component: EnrolledCoursesComponent, outlet: 'primary' },
-
+  { path: 'course', component: CourseComponent, outlet: 'primary' },
 ];
 
 @NgModule({
