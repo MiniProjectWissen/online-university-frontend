@@ -11,8 +11,11 @@ import { Student } from '../model/student.model';
   providedIn: 'root'
 })
 export class StudentService {
+  selectedStudent:Student=new Student();
 
-  constructor(private http: HttpClient, private authService:AuthService,private router:Router) { }
+  constructor(private http: HttpClient, private authService:AuthService,private router:Router) {
+    
+   }
 
   addStudent(student: Student): Observable<any> {
     // Send a request to your backend API to add a new student
