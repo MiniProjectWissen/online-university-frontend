@@ -1,2 +1,10 @@
-<!-- <app-enrolled-courses></app-enrolled-courses> -->
-<app-course></app-course>   
+
+
+
+<app-header *ngIf="!hideHeader"></app-header>
+<router-outlet name="primary"></router-outlet>
+
+<app-footer *ngIf="!hideFooter"></app-footer>
+
+
+

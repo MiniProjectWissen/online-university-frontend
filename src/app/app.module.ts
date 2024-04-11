@@ -15,24 +15,36 @@ import { EnrolledCoursesComponent } from './screens/enrolled-courses/enrolled-co
 import { CourseComponent } from './screens/course/course.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AuthService } from './service/auth.service';
+import { StudentService } from './service/student.service';
+import { HttpClientModule } from '@angular/common/http';
+
+import { StudentProfileComponent } from './screens/student-profile/student-profile.component';
+import { StudentDashboardComponent } from './screens/student-dashboard/student-dashboard.component';
+import { CourseService } from './service/course.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    
     RegistrationComponent,
          LoginComponent,
          HeaderComponent,
          FooterComponent,
          LoaderComponent,
          ModalComponent,
+
+         StudentProfileComponent,
+         StudentDashboardComponent,
          EnrolledCoursesComponent,
          CourseComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule, BrowserAnimationsModule
+    AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule
+
   ],
-  providers: [],
+  providers: [AuthService,StudentService,CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
