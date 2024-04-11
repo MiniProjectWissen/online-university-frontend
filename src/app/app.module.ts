@@ -11,6 +11,9 @@ import { HeaderComponent } from './shared/component/header/header.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { ModalComponent } from './shared/component/modal/modal.component';
+import { EnrolledCoursesComponent } from './screens/enrolled-courses/enrolled-courses.component';
+import { CourseComponent } from './screens/course/course.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AuthService } from './service/auth.service';
 import { StudentService } from './service/student.service';
@@ -18,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { StudentProfileComponent } from './screens/student-profile/student-profile.component';
 import { StudentDashboardComponent } from './screens/student-dashboard/student-dashboard.component';
+import { CourseService } from './service/course.service';
 
 
 @NgModule({
@@ -29,14 +33,18 @@ import { StudentDashboardComponent } from './screens/student-dashboard/student-d
          FooterComponent,
          LoaderComponent,
          ModalComponent,
+
          StudentProfileComponent,
-         StudentDashboardComponent
+         StudentDashboardComponent,
+         EnrolledCoursesComponent,
+         CourseComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule
+    AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule
+
   ],
-  providers: [AuthService,StudentService],
+  providers: [AuthService,StudentService,CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
