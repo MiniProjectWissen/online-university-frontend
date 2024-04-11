@@ -11,6 +11,9 @@ import { HeaderComponent } from './shared/component/header/header.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { ModalComponent } from './shared/component/modal/modal.component';
+import { EnrolledCoursesComponent } from './screens/enrolled-courses/enrolled-courses.component';
+import { CourseComponent } from './screens/course/course.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,11 +24,13 @@ import { ModalComponent } from './shared/component/modal/modal.component';
          HeaderComponent,
          FooterComponent,
          LoaderComponent,
-         ModalComponent
+         ModalComponent,
+         EnrolledCoursesComponent,
+         CourseComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule
+    AppRoutingModule,FormsModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
