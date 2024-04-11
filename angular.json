@@ -24,9 +24,8 @@
             ],
             "styles": [
               
-              "src/styles.css",
-              "src/assets/_variables.scss",
-              "src/assets/_mixins.scss"
+              "src/styles.css"
+              
               
             ],
             "scripts": []
