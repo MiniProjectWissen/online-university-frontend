@@ -1,29 +1,32 @@
+/* Selecting elements using classes */
+
+
+* {
+  background: #cccdcb;
+  
+  
+}
+
+/* Logo styles */
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline-block;
-    margin-right: 20px;
-  }
-  
-  nav ul li:last-child {
-    margin-right: 0;
-  }
-  
-  nav ul li a {
-    color: #ffffff; /* White text color */
-    text-decoration: none;
-  }
-  
-  nav ul li a:hover {
-    color: #f8f9fa; /* Light color */
-  }
-  
+  color: #333432;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+/* Navigation styles */
+
+/* Text light styles */
+.text-light {
+  font-size: medium;
+  font-weight: 500;
+  color: #333432 !important;/* White text color */
+  text-decoration: none;
+  margin-left: 5px;
+}

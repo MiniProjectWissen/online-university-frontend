@@ -16,7 +16,7 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         // Check the current route and set hideHeader and hideFooter accordingly
-        this.hideHeader = event.url.includes('/login') || event.url.includes('/register');
+        this.hideHeader = event.url.includes('/login') || event.url.includes('/register') ;
         this.hideFooter = event.url.includes('/login') || event.url.includes('/register');
       }
     });
