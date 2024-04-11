@@ -11,6 +11,9 @@ import { HeaderComponent } from './shared/component/header/header.component';
 import { FooterComponent } from './shared/component/footer/footer.component';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { ModalComponent } from './shared/component/modal/modal.component';
+import { AuthService } from './service/auth.service';
+import { StudentService } from './service/student.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,9 @@ import { ModalComponent } from './shared/component/modal/modal.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule
+    AppRoutingModule,FormsModule,HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService,StudentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
