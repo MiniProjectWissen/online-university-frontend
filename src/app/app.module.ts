@@ -20,8 +20,8 @@ import { StudentService } from './service/student.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { StudentProfileComponent } from './screens/student-profile/student-profile.component';
-import { StudentDashboardComponent } from './screens/student-dashboard/student-dashboard.component';
 import { CourseService } from './service/course.service';
+import { TeacherProfileComponent } from './screens/teacher-profile/teacher-profile.component';
 
 
 @NgModule({
@@ -35,9 +35,9 @@ import { CourseService } from './service/course.service';
          ModalComponent,
 
          StudentProfileComponent,
-         StudentDashboardComponent,
          EnrolledCoursesComponent,
-         CourseComponent
+         CourseComponent,
+         TeacherProfileComponent
   ],
   imports: [
     BrowserModule,

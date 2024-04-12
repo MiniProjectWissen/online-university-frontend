@@ -6,6 +6,8 @@ import { User } from '../model/user.model';
 import { StudentService } from './student.service';
 import { Subscription } from 'rxjs';
 import { Student } from 'src/app/model/student.model';
+import { TeacherService } from './teacher.service';
+import { Teacher } from '../model/teacher.model';
 
 
 
@@ -17,13 +19,16 @@ export class AuthService {
   isAuthenticated: boolean = false; 
   currentUser: User | null = null; 
   studentSubscription: Subscription;
+  teacherSubscription: Subscription;
 
   constructor(
     private http: HttpClient,
     private router: Router ,
-    private studentService:StudentService
+    private studentService:StudentService,
+    private teacherService:TeacherService
   ) { 
     this.studentSubscription = new Subscription()
+    this.teacherSubscription = new Subscription()
 
   }
 
@@ -49,13 +54,23 @@ export class AuthService {
           this.router.navigate(['']);
 
       
-          this.studentSubscription = this.studentService.getStudentByEmail(userData.email).subscribe(
-            (student: Student) => {
-              this.studentService.student = student;
-              console.log('Received student data:', student);
-            }
-           
+          if(userData.role=="Student"){
+            this.studentSubscription = this.studentService.getStudentByEmail(userData.email).subscribe(
+              (student: Student) => {
+                this.studentService.student = student;
+                console.log('Received student data:', student);
+              }
+             
+              )
+          }
+          else{
+            this.teacherSubscription = this.teacherService.getTeacherByEmail(userData.email).subscribe(
+              (teacher:Teacher) =>{
+                this.teacherService.teacher = teacher;
+                console.log("Received teacher data:  ",teacher)
+              }
             )
+          }
       }
           
         )

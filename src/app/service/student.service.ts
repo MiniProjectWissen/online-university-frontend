@@ -11,7 +11,6 @@ import { Student } from '../model/student.model';
   providedIn: 'root'
 })
 export class StudentService {
-  selectedStudent:Student=new Student();
   student:Student=new Student();
 
   constructor(private http: HttpClient,private router:Router) {
@@ -38,7 +37,7 @@ export class StudentService {
           // localStorage.setItem('userId', JSON.stringify(student.email)); // Example: Storing user details in session storage
           // localStorage.setItem('role', JSON.stringify("Student"));
           // localStorage.setItem('isAuthenticated',JSON.stringify(true));
-          // this.router.navigate(['']);
+          this.router.navigate(['login']);
         })
       );
   }
