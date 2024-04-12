@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/service/course.service';
 import { Course } from 'src/app/model/course.model';
+import { StudentService } from 'src/app/service/student.service';
 
 @Component({
   selector: 'app-enrolled-courses',
@@ -11,15 +12,16 @@ export class EnrolledCoursesComponent implements OnInit {
 
   
 
-  constructor(public es:CourseService) { 
+  constructor(public es:CourseService,public ss:StudentService) { 
     
   }
 
   ngOnInit(): void {
-    this.refereshCourses();
+    this.refereshAllCourses();
+    this.getEnrolledCourses();
   }
 
-  refereshCourses()
+  refereshAllCourses()
   {
     this.es.getAllCourses().subscribe((res)=>{
       this.es.allCourse=res as Course[];
@@ -27,5 +29,12 @@ export class EnrolledCoursesComponent implements OnInit {
     })
   }
 
+  getEnrolledCourses()
+  {
+    this.es.getAllEnrolledCourses(this.ss.student.stud_id).subscribe((res)=>{
+      this.es.enrolledCourses=res as Course[];
+      console.log(this.es.enrolledCourses)
+    })
+  }
 
 }
