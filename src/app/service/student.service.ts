@@ -12,8 +12,10 @@ import { Student } from '../model/student.model';
 })
 export class StudentService {
   selectedStudent:Student=new Student();
+  student:Student=new Student();
 
-  constructor(private http: HttpClient, private authService:AuthService,private router:Router) {
+  constructor(private http: HttpClient,private router:Router) {
+    
    }
 
   addStudent(student: Student): Observable<any> {
@@ -27,36 +29,36 @@ export class StudentService {
           // Rethrow the error to propagate it to the component that subscribed to this Observable
           return throwError(()=> new Error(error.error));
         }),tap((response:any)=>{
-          // Set user data and authentication state upon successful login
-          this.authService.currentUser = response.user; // Assuming the user data is returned in the 'user' property of the response
-          this.authService.isAuthenticated = true;
+          // // Set user data and authentication state upon successful login
+          // this.authService.currentUser = response.user; // Assuming the user data is returned in the 'user' property of the response
+          // this.authService.isAuthenticated = true;
 
-          // Optionally, store user-related information in local storage or session storage
-          //localStorage.setItem('accessToken', response.accessToken); // Example: Storing access token in local storage
-          localStorage.setItem('userId', JSON.stringify(student.email)); // Example: Storing user details in session storage
-          localStorage.setItem('role', JSON.stringify("Student"));
-          localStorage.setItem('isAuthenticated',JSON.stringify(true));
-          this.router.navigate(['']);
+          // // Optionally, store user-related information in local storage or session storage
+          // //localStorage.setItem('accessToken', response.accessToken); // Example: Storing access token in local storage
+          // localStorage.setItem('userId', JSON.stringify(student.email)); // Example: Storing user details in session storage
+          // localStorage.setItem('role', JSON.stringify("Student"));
+          // localStorage.setItem('isAuthenticated',JSON.stringify(true));
+          // this.router.navigate(['']);
         })
       );
   }
 
-  removeStudent(studentId: number): Observable<any> {
-    // Send a request to your backend API to remove a student by ID
-    return this.http.delete<any>(`http://localhost:8081/student/delete/${studentId}`)
-      .pipe(
-        catchError((error) => {
-          // Handle error here, such as displaying a toast message or logging the error
-          console.error('An error occurred while removing a student:', error);
-          // Rethrow the error to propagate it to the component that subscribed to this Observable
-          return throwError(()=> new Error(error));
-        })
-      );
-  }
+  // removeStudent(studentId: number): Observable<any> {
+  //   // Send a request to your backend API to remove a student by ID
+  //   return this.http.delete<any>(`http://localhost:8080/student/delete/${studentId}`)
+  //     .pipe(
+  //       catchError((error) => {
+  //         // Handle error here, such as displaying a toast message or logging the error
+  //         console.error('An error occurred while removing a student:', error);
+  //         // Rethrow the error to propagate it to the component that subscribed to this Observable
+  //         return throwError(()=> new Error(error));
+  //       })
+  //     );
+  // }
 
-  updateStudent(studentId: number, student: User): Observable<any> {
+  updateStudent(studentId: number, student: Student): Observable<any> {
     // Send a request to your backend API to update a student by ID
-    return this.http.put<any>(`http://localhost:8081/student/update/${studentId}`, student)
+    return  this.http.put<any>(`http://localhost:8081/student/update/${studentId}`, student)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
@@ -67,9 +69,21 @@ export class StudentService {
       );
   }
 
-  getStudentById(studentId: number): Observable<User> {
+  // getStudentById(studentId: number): Observable<User> {
+  //   // Send a request to your backend API to fetch a student by ID
+  //   return this.http.get<User>(`http://localhost:8080/student/get/${studentId}`)
+  //     .pipe(
+  //       catchError((error) => {
+  //         // Handle error here, such as displaying a toast message or logging the error
+  //         console.error('An error occurred while fetching a student by ID:', error);
+  //         // Rethrow the error to propagate it to the component that subscribed to this Observable
+  //         return throwError(()=> new Error(error));
+  //       })
+  //     );
+  // }
+  getStudentByEmail(email:String | null = null): Observable<Student> {
     // Send a request to your backend API to fetch a student by ID
-    return this.http.get<User>(`http://localhost:8081/student/get/${studentId}`)
+    return this.http.get<Student>(`http://localhost:8081/student/getEmail/${email}`)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
@@ -80,31 +94,18 @@ export class StudentService {
       );
   }
 
-  getStudentByEmail(email: String): Observable<Student> {
-    // Send a request to your backend API to fetch a student by ID
-    return this.http.get<Student>(`http://localhost:8081/student/${email}`)
-      .pipe(
-        catchError((error) => {
-          // Handle error here, such as displaying a toast message or logging the error
-          console.error('An error occurred while fetching a student by ID:', error);
-          // Rethrow the error to propagate it to the component that subscribed to this Observable
-          return throwError(()=> new Error(error));
-        })
-      );
-  }
-
-  getAllStudents(): Observable<User[]> {
-    // Send a request to your backend API to fetch all students
-    return this.http.get<User[]>('http://localhost:8081/student/get/all')
-      .pipe(
-        catchError((error) => {
-          // Handle error here, such as displaying a toast message or logging the error
-          console.error('An error occurred while fetching all students:', error);
-          // Rethrow the error to propagate it to the component that subscribed to this Observable
-          return throwError(()=> new Error(error));
-        })
-      );
-  }
+  // getAllStudents(): Observable<User[]> {
+  //   // Send a request to your backend API to fetch all students
+  //   return this.http.get<User[]>('http://localhost:8080/student/get/all')
+  //     .pipe(
+  //       catchError((error) => {
+  //         // Handle error here, such as displaying a toast message or logging the error
+  //         console.error('An error occurred while fetching all students:', error);
+  //         // Rethrow the error to propagate it to the component that subscribed to this Observable
+  //         return throwError(()=> new Error(error));
+  //       })
+  //     );
+  // }
 
   // Implement other methods for fetching all students, searching students by criteria, etc.
 

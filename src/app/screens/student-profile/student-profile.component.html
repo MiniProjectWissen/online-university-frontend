@@ -9,14 +9,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+   
   </head>
 
   <body>
-    <div class="page-content page-container" id="page-content">
+    <!-- <div class="page-content page-container" id="page-content">
       <div class="padding">
         <div class="row container d-flex justify-content-center">
           <div class="col-xl-6 col-md-12">
@@ -84,8 +81,161 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <div class="container">
+      <div class="main-body">
+      
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="main-breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+              </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+      
+            <div class="row gutters-sm">
+              <div class="col-md-4 mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="d-flex flex-column align-items-center text-center">
+                      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                      <div class="mt-3">
+                        <!-- <h4>John Doe</h4>
+                        <p class="text-secondary mb-1">Full Stack Developer</p> -->
+                        <h4 class="f-w-600">first_name: <input class="text-center text-dark  border-0 border-bottom border-dark" type="text" name="first_name" [disabled]="flag" [(ngModel)]="student.first_name"> </h4>
+                          <h4 class="f-w-600">last_name: <input class="text-center text-dark border-0 border-bottom border-dark" type="text" name="last_name" [disabled]="flag" [(ngModel)]="student.last_name"></h4>
+                          <h4 class="f-w-600">roll_no: <input class="text-center text-dark border-0 border-bottom border-dark" type="text" name="roll_no" [disabled]="flag" [(ngModel)]="student.roll_no"></h4>
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="card mt-3">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h3 class="mb-0">Contacts</h3>
+                      </div>
+                      
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h4 class="mb-0">Email</h4>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <h4 class=" f-w-600"><input type="text" class="text-center text-dark border-0 border-bottom border-dark" name="email" [disabled]="flag" [(ngModel)]="student.email"></h4>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h4 class="mb-0">phone</h4>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <h4 class="text-muted f-w-600"><input class="text-center text-dark border-0 border-bottom border-dark" type="text" name="phone_number" [disabled]="flag" [(ngModel)]="student.phone_number"></h4>
+                      </div>
+                    </div>
+                   
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h3 class="mb-0">Information</h3>
+                      </div>
+                      
+                    </div>
+                    <br>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h4 class="mb-0">Standard</h4>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <h4 class="f-w-600"><input class="text-center text-dark border-0 border-bottom border-dark" type="text" name="standard" [disabled]="flag" [(ngModel)]="student.standard"></h4>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h4 class="mb-0">dob</h4>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <h4 class="text-muted f-w-600"><input class="text-center text-dark border-0 border-bottom border-dark" type="text" name="dob" [disabled]="flag" [(ngModel)]="student.dob"></h4>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h4 class="mb-0">gender</h4>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <h4 class="text-muted f-w-600"><input class="text-center text-dark border-0 border-bottom border-dark" type="text" name="gender" [disabled]="flag" [(ngModel)]="student.gender"></h4>
+                      </div>
+                    </div>
+                    <hr>
+                    
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h4 class="mb-0">Address</h4>
+                      </div>
+                      <div class="col-sm-9 text-secondary">
+                        <h4 class="text-muted f-w-600"><input class="text-center text-dark border-0 border-bottom border-dark" type="text" name="address" [disabled]="flag" [(ngModel)]="student.address"></h4>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                      <div class="col-sm-3">
+                          <button class="btn btn-primary" (click)="allowEdit()"><span class="material-symbols-outlined">edit</span>edit</button>    
+                      </div>
+                      <div class="col-sm-3">
+                          <button class="btn btn-primary" (click)="onSubmit()"><span class="material-symbols-outlined">edit</span>Submit</button>    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- <div class="row gutters-sm">
+                  <div class="col-sm-6 mb-3">
+                    <div class="card h-100">
+                      <div class="card-body">
+                        <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                        <small>Web Design</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Website Markup</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>One Page</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Mobile Template</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small>Backend API</small>
+                        <div class="progress mb-3" style="height: 5px">
+                          <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div> -->
+              </div>
+            </div>
+  
+          </div>
+      </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
   </body>
 </html>
