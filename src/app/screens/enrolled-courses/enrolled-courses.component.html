@@ -28,14 +28,11 @@
                     <h4 class="card-subtitle mb-2 text-muted">Instructor : {{course.teacher_id}}</h4>
                     <h5>Duration : {{course.start_date | date}} - {{course.end_date | date}}</h5>
                     <h5 class="card-text">{{course.description}}</h5>
-                    <a routerLink="/course" class="btn btn-primary">View Details</a>
+                    <button routerLink="/course" (click)="es.setSelectedCourse(course.course_id)" class="btn btn-primary">View Details</button>
                 </div>
             </div>
             </mat-grid-tile>
             </mat-grid-list>
-        </div> 
-
-        
-          
+        </div>   
     </div>
 </body>
