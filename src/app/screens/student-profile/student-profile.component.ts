@@ -24,7 +24,7 @@ export class StudentProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  // this.getStudentProfile(); 
+    this.getStudentProfile(); 
   }
 
   getStudentProfile(){
