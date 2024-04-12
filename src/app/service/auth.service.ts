@@ -3,6 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'; 
 import { Observable, of,tap ,catchError,throwError} from 'rxjs';
 import { User } from '../model/user.model';
+import { StudentService } from './student.service';
+import { Subscription } from 'rxjs';
+import { Student } from 'src/app/model/student.model';
+
 
 
 
@@ -12,11 +16,16 @@ import { User } from '../model/user.model';
 export class AuthService {
   isAuthenticated: boolean = false; 
   currentUser: User | null = null; 
+  studentSubscription: Subscription;
 
   constructor(
     private http: HttpClient,
-    private router: Router 
-  ) { }
+    private router: Router ,
+    private studentService:StudentService
+  ) { 
+    this.studentSubscription = new Subscription()
+
+  }
 
   login(userData: User): Observable<any> {
     return this.http.post('http://localhost:8081/auth', userData)
@@ -38,7 +47,18 @@ export class AuthService {
           localStorage.setItem('role', JSON.stringify(userData.role));
           localStorage.setItem('isAuthenticated',JSON.stringify(true));
           this.router.navigate(['']);
-        })
+
+      
+          this.studentSubscription = this.studentService.getStudentByEmail(userData.email).subscribe(
+            (student: Student) => {
+              this.studentService.student = student;
+              console.log('Received student data:', student);
+            }
+           
+            )
+      }
+          
+        )
       );
   }
 
