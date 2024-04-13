@@ -5,6 +5,7 @@ import { LoginComponent } from './screens/login/login.component';
 import { StudentProfileComponent } from './screens/student-profile/student-profile.component';
 import { EnrolledCoursesComponent } from './screens/enrolled-courses/enrolled-courses.component';
 import { TeacherProfileComponent } from './screens/teacher-profile/teacher-profile.component';
+import { MyCoursesComponent } from './screens/my-courses/my-courses.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
@@ -14,6 +15,9 @@ const routes: Routes = [
   { path: 'profile', component: StudentProfileComponent, outlet: 'primary' },
   { path: 'teacherprofile', component: TeacherProfileComponent, outlet: 'primary' },
   { path: 'enrolledCourses', component: EnrolledCoursesComponent, outlet: 'primary' },
+  { path: 'myCourses', component: MyCoursesComponent, outlet: 'primary' },
+
+
 
 ];
 
