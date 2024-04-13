@@ -10,10 +10,7 @@ import { StudentService } from 'src/app/service/student.service';
 })
 export class EnrolledCoursesComponent implements OnInit {
 
-  selectedCours:Course;
-
   constructor(public es:CourseService,public ss:StudentService) { 
-    this.selectedCours=new Course();
   }
 
   ngOnInit(): void {
@@ -36,14 +33,6 @@ export class EnrolledCoursesComponent implements OnInit {
       console.log("Enrolled Courses")
       console.log(this.es.enrolledCourses)
     })
-  }
-
-  setSelectedCourse(courseid:number)
-  {
-    this.es.getCourseById(courseid).subscribe((res)=>{
-      this.selectedCours=res as Course;
-      console.log(this.selectedCours)
-    });
   }
 
 }
