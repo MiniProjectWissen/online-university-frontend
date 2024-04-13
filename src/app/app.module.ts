@@ -18,12 +18,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './service/auth.service';
 import { StudentService } from './service/student.service';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatIconModule } from '@angular/material/icon'; 
 import { StudentProfileComponent } from './screens/student-profile/student-profile.component';
 import { CourseService } from './service/course.service';
 import { TeacherProfileComponent } from './screens/teacher-profile/teacher-profile.component';
 import { MyCoursesComponent } from './screens/my-courses/my-courses.component';
 
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,6 @@ import { MyCoursesComponent } from './screens/my-courses/my-courses.component';
          FooterComponent,
          LoaderComponent,
          ModalComponent,
-
          StudentProfileComponent,
          EnrolledCoursesComponent,
          CourseComponent,
@@ -42,8 +42,8 @@ import { MyCoursesComponent } from './screens/my-courses/my-courses.component';
          MyCoursesComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule
+    BrowserModule,AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,
+    MatGridListModule,MatIconModule
 
   ],
   providers: [AuthService,StudentService,CourseService],

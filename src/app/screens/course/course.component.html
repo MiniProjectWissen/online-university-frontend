@@ -18,27 +18,46 @@ crossorigin="anonymous"></script>
 
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-body">
-                <h3 class="card-title">{{ es.selectedCourse.title }}</h3>
-                <h4 class="card-subtitle mb-2 text-muted">Instructor ID: {{ es.selectedCourse.teacher_id }}</h4>
-                <p class="card-text">{{ es.selectedCourse.description }}</p>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Forum ID:</strong> {{ es.selectedCourse.forum_id }}</li>
-                    <li class="list-group-item"><strong>Start Date:</strong> {{ es.selectedCourse.start_date | date }}</li>
-                    <li class="list-group-item"><strong>End Date:</strong> {{ es.selectedCourse.end_date | date }}</li>
-                    <li class="list-group-item"><strong>Schedule Days:</strong> {{ es.selectedCourse.sch_days }}</li>
-                    <li class="list-group-item"><strong>Join Time:</strong> {{ es.selectedCourse.join_time | date: 'shortTime' }}</li>
-                    <li class="list-group-item"><strong>End Time:</strong> {{ es.selectedCourse.end_time | date: 'shortTime' }}</li>
-                    <li class="list-group-item"><strong>Lectures Taken:</strong> {{ es.selectedCourse.lectures_taken }}</li>
-                </ul>
-                <div class="mt-3">
-                    <h4><strong>Syllabus:</strong></h4>
-                    <p>{{ es.selectedCourse.syllabus }}</p>
-                </div>
-            </div>
+    <div class="container">
+        <div class="course-header">
+          <!-- Course Image -->
+        <img src="assets/getCertifiedImg.png" alt="Course Image" class="course-image">
+          <!-- Course Title -->
+          <h1 class="course-title">{{ es.selectedCourse.title }}</h1>
+          <!-- Course Instructor -->
+          <p class="course-instructor">Instructor: {{ es.selectedCourse.teacher_id }}</p>
+          <!-- Course Rating -->
+          <div class="course-rating">
+            <mat-icon class="star-icon">star</mat-icon>
+            <mat-icon class="star-icon">star</mat-icon>
+            <mat-icon class="star-icon">star</mat-icon>
+            <mat-icon class="star-icon">star</mat-icon>
+            <mat-icon class="star-icon">star_border</mat-icon>
+            <span class="rating-count">({{ 4 }})</span>
+          </div>
         </div>
-    </div>
-    
+        <div class="additional-attributes">
+            <p><strong>Attendance:</strong> 91% </p>
+            <p><strong>Lectures Taken : </strong>{{es.selectedCourse.lectures_taken}}</p>
+            <button type="button" class="btn btn-primary" style="margin: 10px; padding: 10px;">Pending Test</button>
+            <button type="button" class="btn btn-success" style="margin: 10px; padding: 10px;">Attempted Test</button>
+            <button type="button" class="btn btn-danger" style="margin: 10px; padding: 10px;">Due Test</button>
+            <button type="button" class="btn btn-info" style="margin: 10px; padding: 10px;">Forum</button>
+          </div>
+        <div class="course-content">
+          <!-- Course Description -->
+          <h2>Description</h2>
+          <p class="course-description">{{ es.selectedCourse.description }}</p>
+          <!-- Course Curriculum -->
+          <h2>Curriculum</h2>
+          <div class="curriculum-items">
+            <!-- <p class="course-description">{{ es.selectedCourse.syllabus }}</p> -->
+            <!-- <div *ngFor="let item of course.curriculum" class="curriculum-item">
+              <div class="item-number">{{ item.number }}</div>
+              <div class="item-title">{{ item.title }}</div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      
 </body>
