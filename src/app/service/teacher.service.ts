@@ -3,12 +3,15 @@ import { Teacher } from '../model/teacher.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, catchError, throwError } from 'rxjs';
+import { Test } from '../model/test.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeacherService {
   teacher: Teacher = new Teacher()
+
+  url:String="http://localhost:8081";
 
   constructor(private http: HttpClient,private router:Router) { }
 
@@ -37,5 +40,11 @@ export class TeacherService {
         })
       );
   }
+
+  createTest(test:Test)
+  {
+    return this.http.post(this.url+"/test/add",test);
+  }
+
 
 }

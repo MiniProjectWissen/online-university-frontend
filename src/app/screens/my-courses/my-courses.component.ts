@@ -14,7 +14,7 @@ export class MyCoursesComponent implements OnInit {
   myCourseSubscription: Subscription
   myCourseList : Course[];
 
-  constructor(public cs:CourseService,public ts:TeacherService) {
+  constructor(public es:CourseService,public ts:TeacherService) {
     this.myCourseSubscription = new Subscription();
     this.myCourseList = [];
    }
@@ -26,7 +26,7 @@ export class MyCoursesComponent implements OnInit {
   loadTeacherCourses(){
     let teacherId = this.ts.teacher.teacher_id;
     console.log(teacherId)
-    this.myCourseSubscription = this.cs.getAllCoursesByTeacher(teacherId).subscribe(
+    this.myCourseSubscription = this.es.getAllCoursesByTeacher(teacherId).subscribe(
       (courses:Course[])=>{
         this.myCourseList = courses;
         console.log("Recieved course list by teacher "+courses)

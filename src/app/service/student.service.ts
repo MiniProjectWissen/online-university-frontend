@@ -6,12 +6,15 @@ import { User } from '../model/user.model';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { Student } from '../model/student.model';
+import { StudentTest } from '../model/student-test.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
   student:Student=new Student();
+
+  url:String="http://localhost:8081";
 
   constructor(private http: HttpClient,private router:Router) {
     
@@ -107,5 +110,10 @@ export class StudentService {
   // }
 
   // Implement other methods for fetching all students, searching students by criteria, etc.
+
+  addStudentTest(st:StudentTest)
+  {
+    return this.http.post(this.url+"/student/addTest",st)
+  }
 
 }
