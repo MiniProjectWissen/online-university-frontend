@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { Course } from '../model/course.model';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
+import { StudentCourse } from '../model/student-course.model';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,22 @@ export class CourseService {
     return this.http.get(this.url+"/course/get/"+courseId);
   }
 
+  addCourse(course: Course): Observable<any> {
+    // Send a request to your backend API to add a new student
+    return this.http.post<any>('http://localhost:8081/course/add', course)
+      .pipe(
+        
+        catchError((error) => {
+          // Handle error here, such as displaying a toast message or logging the error
+          console.log('An error occurred while adding a student:', error.error);
+          // Rethrow the error to propagate it to the component that subscribed to this Observable
+          return throwError(()=> new Error(error.error));
+        }),tap((response:any)=>{
+         
+          // this.router.navigate(['login']);
+        })
+      );
+  }
    getAllCoursesByTeacher(teacherId:number): Observable<Course[]> {
     // Send a request to your backend API to fetch all students
     return this.http.get<Course[]>(`http://localhost:8081/course/getCoursesByTeacher/${teacherId}`)
@@ -59,6 +76,25 @@ export class CourseService {
           console.error('An error occurred while fetching all students:', error);
           // Rethrow the error to propagate it to the component that subscribed to this Observable
           return throwError(()=> new Error(error));
+        })
+      );
+  }
+
+
+
+  addStudentCourse(StudentCourse:StudentCourse): Observable<any> {
+    // Send a request to your backend API to add a new student
+    return this.http.post<any>('http://localhost:8081/student/enrollCourse', StudentCourse)
+      .pipe(
+        
+        catchError((error) => {
+          // Handle error here, such as displaying a toast message or logging the error
+          console.log('An error occurred while adding a student:', error.error);
+          // Rethrow the error to propagate it to the component that subscribed to this Observable
+          return throwError(()=> new Error(error.error));
+        }),tap((response:any)=>{
+         
+          // this.router.navigate(['login']);
         })
       );
   }

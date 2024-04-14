@@ -24,7 +24,58 @@
                 <a href="#" class="btn btn-primary">View Now</a>
             </div>
         </div>
+
+
+        <br><br><br>
+        <div class="card">
+            <div class="card-content">
+              <span class="card-title">Course Registration</span>
+              <form (ngSubmit)="submitCourse(courseForm)" #courseForm="ngForm">
+                <div class="input-field">
+                  <input id="title" type="text" name="title" class="validate" [(ngModel)]="newCourse.title" required>
+                  <label for="title">Course Title</label>
+                </div>
+                <div class="input-field">
+                  <input id="description" type="text" name="description" class="validate" [(ngModel)]="newCourse.description" required>
+                  <label for="description">Course Description</label>
+                </div>
+                <div class="input-field">
+                  <input id="syllabus" type="text" name="syllabus" class="validate" [(ngModel)]="newCourse.syllabus" required>
+                  <label for="syllabus">syllabus</label>
+                </div>
+                <div class="input-field">
+                  <input id="forum_id" type="number" name="forum_id" class="validate" [(ngModel)]="newCourse.forum_id" required>
+                  <label for="forum_id">forum_id</label>
+                </div>
+                <div class="input-field">
+                  <input id="start_date" type="date" name="start_date" class="validate" [(ngModel)]="newCourse.start_date">
+                  <label for="start_date">start_date</label>
+                </div>
+                <div class="input-field">
+                  <input id="end_date" type="date" name="end_date" class="validate" [(ngModel)]="newCourse.end_date">
+                  <label for="end_date">End Date</label>
+                </div>
+                
+                <div class="input-field">
+                  <input id="join_time" type="datetime" name="join_time" class="validate" [(ngModel)]="newCourse.join_time">
+                  <label for="join_time">Join Time</label>
+                </div>
+                <div class="input-field">
+                  <input id="end_time" type="datetime" name="end_time" class="validate" [(ngModel)]="newCourse.end_time" >
+                  <label for="end_time">End Time</label>
+                </div>
+                <button type="submit" class="btn waves-effect waves-light" >Register Course
+                  <i class="material-icons right">send</i>
+                </button>
+              </form>
+            </div>
+          </div>
     </div>
+
+
+  
+
+    
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
 

@@ -25,6 +25,7 @@ import { TeacherProfileComponent } from './screens/teacher-profile/teacher-profi
 import { MyCoursesComponent } from './screens/my-courses/my-courses.component';
 
 import {MatGridListModule} from '@angular/material/grid-list';
+import { AllCoursesComponent } from './screens/all-courses/all-courses.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
          EnrolledCoursesComponent,
          CourseComponent,
          TeacherProfileComponent,
-         MyCoursesComponent
+         MyCoursesComponent,
+         AllCoursesComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,

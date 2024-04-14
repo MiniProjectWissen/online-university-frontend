@@ -28,6 +28,7 @@ export class EnrolledCoursesComponent implements OnInit {
 
   getEnrolledCourses()
   {
+    console.log(this.ss.student.stud_id)
     this.es.getAllEnrolledCourses(this.ss.student.stud_id).subscribe((res)=>{
       this.es.enrolledCourses=res as Course[];
       console.log("Enrolled Courses")

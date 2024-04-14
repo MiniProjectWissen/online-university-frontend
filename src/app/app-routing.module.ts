@@ -7,6 +7,7 @@ import { EnrolledCoursesComponent } from './screens/enrolled-courses/enrolled-co
 import { TeacherProfileComponent } from './screens/teacher-profile/teacher-profile.component';
 import { MyCoursesComponent } from './screens/my-courses/my-courses.component';
 import { CourseComponent } from './screens/course/course.component';
+import { AllCoursesComponent } from './screens/all-courses/all-courses.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'enrolledCourses', component: EnrolledCoursesComponent, outlet: 'primary' },
   { path: 'myCourses', component: MyCoursesComponent, outlet: 'primary' },
   { path: 'course', component: CourseComponent, outlet: 'primary' },
+  { path: '', component: AllCoursesComponent, outlet: 'primary' },
 ];
 
 @NgModule({

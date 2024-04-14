@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from 'src/app/model/course.model';
 import { CourseService } from 'src/app/service/course.service';
 
 @Component({
@@ -13,8 +14,10 @@ export class CourseComponent implements OnInit {
   constructor(public es:CourseService) { }
 
   ngOnInit(): void {
+    
   }
 
+  
   findScheduleDays()
   {
     
