@@ -13,12 +13,11 @@ export class LoginComponent implements OnInit {
   errorOccurred: boolean=false;
   error : String="";
   isLoading:boolean=false;
+
   constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
   }
-
-  
 
   submitForm(loginForm: NgForm): void {
     this.isLoading=true;

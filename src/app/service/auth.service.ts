@@ -78,11 +78,6 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    // Clear user-related information from local storage or session storage
-    //localStorage.removeItem('accessToken'); // Assuming you store the access token in local storage
-    //sessionStorage.removeItem('userDetails'); // Assuming you store user details in session storage
-
-    
     this.isAuthenticated = false;
     this.currentUser = null;
 

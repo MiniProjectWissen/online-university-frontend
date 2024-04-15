@@ -13,7 +13,7 @@ import { TestComponent } from './screens/test/test.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
-  
+  //{ path: '', component: LoginComponent, outlet: 'primary' },
   { path: 'login', component: LoginComponent, outlet: 'primary' },
   { path: 'register', component: RegistrationComponent, outlet: 'primary' },
   { path: 'profile', component: StudentProfileComponent, outlet: 'primary' },
@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'enrolledCourses', component: EnrolledCoursesComponent, outlet: 'primary' },
   { path: 'myCourses', component: MyCoursesComponent, outlet: 'primary' },
   { path: 'course', component: CourseComponent, outlet: 'primary' },
-  { path: '', component: AllCoursesComponent, outlet: 'primary' },
+  { path: 'home', component: AllCoursesComponent, outlet: 'primary' },
   { path: 'teacherCourse',component:TeacherCourseComponent,outlet: 'primary'},
   { path: 'test',component:TestComponent,outlet: 'primary'},
 
