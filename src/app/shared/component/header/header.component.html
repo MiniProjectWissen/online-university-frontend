@@ -1,22 +1,25 @@
-<header class="bg-primary text-light py-3">
+<header class="bg-primary text-light py-3" *ngIf="showHeader">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="logo">Online University</div>
       <nav>
         <ul class="list-inline mb-0" [hidden]="flag">
-          <li class="list-inline-item"><a routerLink="/" class="text-light">Home</a></li>
+          <li class="list-inline-item"><a routerLink="/home" class="text-light">Home</a></li>
           <li class="list-inline-item"><a routerLink="/enrolledCourses"class="text-light">EnrolledCourses</a></li>
           <li class="list-inline-item"><a routerLink="/profile" class="text-light">Profile</a></li>
-          <li class="list-inline-item"><a routerLink="/login"class="text-light">Login</a></li>
-          <li class="list-inline-item"><a routerLink="/register"class="text-light">Register</a></li>
-          
+          <!-- <li class="list-inline-item"><a routerLink="/login"class="text-light">Login</a></li>
+          <li class="list-inline-item"><a routerLink="/register"class="text-light">Register</a></li> -->
+          <li class="list-inline-item"><a routerLink="/login" class="text-light">Logout</a></li>
+
         </ul>
         <ul class="list-inline mb-0" [hidden]="!flag">
-          <li class="list-inline-item"><a routerLink="/" class="text-light">Home</a></li>
+          <li class="list-inline-item"><a routerLink="/home" class="text-light">Home</a></li>
           <li class="list-inline-item"><a routerLink="/myCourses"class="text-light">myCourses</a></li>
           <li class="list-inline-item"><a routerLink="/teacherprofile" class="text-light">Profile</a></li>
-          <li class="list-inline-item"><a routerLink="/login"class="text-light">Login</a></li>
+          <!-- <li class="list-inline-item"><a routerLink="/login"class="text-light">Login</a></li>
           <li class="list-inline-item"><a routerLink="/register"class="text-light">Register</a></li>
-          
+           -->
+           <li class="list-inline-item"><a routerLink="/login" class="text-light">Logout</a></li>
+
         </ul>
       </nav>
     </div>
