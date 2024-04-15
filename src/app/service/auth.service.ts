@@ -51,7 +51,7 @@ export class AuthService {
           localStorage.setItem('userId', JSON.stringify(userData.email)); // Example: Storing user details in session storage
           localStorage.setItem('role', JSON.stringify(userData.role));
           localStorage.setItem('isAuthenticated',JSON.stringify(true));
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
 
       
           if(userData.role=="Student"){

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
   flag: boolean;
   showHeader: boolean = true;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router,public as:AuthService) { 
     this.flag = false;
   }
 
@@ -21,6 +22,7 @@ export class HeaderComponent implements OnInit {
       this.showHeader = this.router.url !== '';
     });
   }
+
   display(){
     let role: String | null = null;
     role = localStorage.getItem("role");
