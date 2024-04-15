@@ -116,4 +116,16 @@ export class StudentService {
     return this.http.post(this.url+"/student/addTest",st)
   }
 
+  getAllStudentsByCourse(courseId:number): Observable<Student[]> {
+    // Send a request to your backend API to fetch all students
+    return this.http.get<Student[]>(`http://localhost:8081/student/getStudentsByCourse/${courseId}`)
+      .pipe(
+        catchError((error) => {
+          // Handle error here, such as displaying a toast message or logging the error
+          console.error('An error occurred while fetching all students:', error);
+          // Rethrow the error to propagate it to the component that subscribed to this Observable
+          return throwError(()=> new Error(error));
+        })
+      );
+  }
 }

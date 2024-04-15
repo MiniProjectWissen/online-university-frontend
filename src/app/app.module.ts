@@ -28,6 +28,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { AllCoursesComponent } from './screens/all-courses/all-courses.component';
 import { TestComponent } from './screens/test/test.component';
 import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.component';
+import { StudentAttendanceComponent } from './screens/student-attendance/student-attendance.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.
          MyCoursesComponent,
          AllCoursesComponent,
          TeacherCourseComponent,
-         TestComponent
+         TestComponent,
+         StudentAttendanceComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,

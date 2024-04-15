@@ -46,5 +46,18 @@ export class TeacherService {
     return this.http.post(this.url+"/test/add",test);
   }
 
+  updateStudentAttendance(stud_id:number,course_id:number): Observable<any> {
+    // Send a request to your backend API to update a student by ID
+    return  this.http.put<any>(`http://localhost:8081/teacher/incrementAttendence/${stud_id}/${course_id}`,{})
+      .pipe(
+        catchError((error) => {
+          // Handle error here, such as displaying a toast message or logging the error
+          console.error('An error occurred while updating a student:', error);
+          // Rethrow the error to propagate it to the component that subscribed to this Observable
+          return throwError(()=> new Error(error));
+        })
+      );
+  }
+
 
 }

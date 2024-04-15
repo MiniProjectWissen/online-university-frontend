@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <h4 >Student Name</h4>         </div>
+        <div class="col-sm-9 text-secondary">
+            <h4>Attendance</h4>
+        </div>
+      </div>
+    <div *ngFor="let student of studentsByCourse">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 >{{student.first_name}} {{student.last_name}}</h4>         </div>
+            <div class="col-sm-9 text-secondary">
+              <h4 class="text-muted f-w-600"><input class="text-center text-dark border-0 border-bottom border-dark" type="checkbox" name="attendance_lecture_count" (change)="addStudentAttendance(student.stud_id)"></h4>
+            </div>
+          </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <button class="btn btn-primary" (click)="updateStudentAttendance()">Give Attendance</button>       
+         </div>
+        
+      </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
+
