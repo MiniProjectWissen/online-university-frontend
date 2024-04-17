@@ -16,6 +16,7 @@ export class CourseService {
   allCourse:Course[];
   selectedTeacherCourse:Course;
   courseIdSelectedByTeacher:number;
+  courseIdSelectedByStudent:number;
   teacher:Teacher;
 
   url:string ="http://localhost:8090";
@@ -25,8 +26,14 @@ export class CourseService {
     this.enrolledCourses=[];
     this.allCourse=[];
     this.courseIdSelectedByTeacher=0;
+    this.courseIdSelectedByStudent=0;
     this.selectedTeacherCourse=new Course();
     this.teacher=new Teacher();
+  }
+
+  setSelectedCourseByStudent(courseId:number)
+  {
+    this.courseIdSelectedByStudent=courseId;
   }
 
   setSelectedCourse(courseid:number)

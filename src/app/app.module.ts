@@ -29,6 +29,8 @@ import { AllCoursesComponent } from './screens/all-courses/all-courses.component
 import { TestComponent } from './screens/test/test.component';
 import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.component';
 import { StudentAttendanceComponent } from './screens/student-attendance/student-attendance.component';
+import { UpcomingTestComponent } from './screens/upcoming-test/upcoming-test.component';
+import { PreviousTestComponent } from './screens/previous-test/previous-test.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { StudentAttendanceComponent } from './screens/student-attendance/student
          AllCoursesComponent,
          TeacherCourseComponent,
          TestComponent,
-         StudentAttendanceComponent
+         StudentAttendanceComponent,
+         UpcomingTestComponent,
+         PreviousTestComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upcoming Test</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+   
+  </head>
+  <body>
+    <div class="container">
+      <div class="grid">
+          <div *ngFor="let test of finalTestList">
+              <h3 class="card-title">Test Content :- {{test.test_content}}</h3>
+              <h4 class="card-subtitle mb-2 text-muted">Total Marks : {{test.total_marks}}</h4>
+              <h5>Duration : {{test.start_time | date}} - {{test.end_time | date}}</h5>
+              <!-- <a href="#" class="btn btn-primary">View Now</a> -->
+              <button class="btn btn-primary">Attempt Test</button>
+          </div>
+      </div>
+  </div>
+
+<!-- <button routerLink="/course" (click)="es.setSelectedCourse(course.course_id)" class="btn btn-primary">View Details</button> -->
+
+</body>
