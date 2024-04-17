@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   submitForm(loginForm: NgForm): void {
     this.isLoading=true;
     if (loginForm.valid) {
+      console.log("valid")
       this.loginData=loginForm.value as User;
       console.log(this.loginData)
 
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
               this.errorOccurred=true;
               this.error=error;
               //throw error
+              console.log(error+" ksksk")
               this.isLoading=false;
           },
           "complete": ()=>{
