@@ -8,7 +8,7 @@ export class Course {
 	start_date: Date;
 	end_date: Date;
 	sch_days: String;
-	syllabus: String;
+	syllabus: string;
 	join_time: Date;
 	end_time: Date;
 	lectures_taken: number;

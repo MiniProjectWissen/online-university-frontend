@@ -12,14 +12,17 @@ export class CourseComponent implements OnInit {
 
   scheduled_days=[];
   attendance:any;
+  
 
   constructor(public es:CourseService,public ss:StudentService) { 
     this.attendance=0.0;
+   
   }
 
   ngOnInit(): void {
 
     this.setAttendance();
+    
   }
 
   

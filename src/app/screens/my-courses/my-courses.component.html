@@ -48,7 +48,7 @@
                   <label for="description">Course Description</label>
                 </div>
                 <div class="input-field">
-                  <input id="syllabus" type="text" name="syllabus" class="validate" [(ngModel)]="newCourse.syllabus" required>
+                  <input id="syllabus" type="file" (change)="onFileSelected($event)" name="syllabus" class="validate" required >
                   <label for="syllabus">syllabus</label>
                 </div>
                 <div class="input-field">
