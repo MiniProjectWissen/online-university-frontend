@@ -21,25 +21,15 @@ export class StudentService {
    }
 
   addStudent(student: Student): Observable<any> {
-    // Send a request to your backend API to add a new student
-    return this.http.post<any>('http://localhost:8081/student/add', student)
+
+    return this.http.post<any>('http://localhost:8090/student/add', student)
       .pipe(
-        
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
-          console.log('An error occurred while adding a student:', error.error);
+          console.log('An error occurred while adding a student:', error);
           // Rethrow the error to propagate it to the component that subscribed to this Observable
           return throwError(()=> new Error(error.error));
         }),tap((response:any)=>{
-          // // Set user data and authentication state upon successful login
-          // this.authService.currentUser = response.user; // Assuming the user data is returned in the 'user' property of the response
-          // this.authService.isAuthenticated = true;
-
-          // // Optionally, store user-related information in local storage or session storage
-          // //localStorage.setItem('accessToken', response.accessToken); // Example: Storing access token in local storage
-          // localStorage.setItem('userId', JSON.stringify(student.email)); // Example: Storing user details in session storage
-          // localStorage.setItem('role', JSON.stringify("Student"));
-          // localStorage.setItem('isAuthenticated',JSON.stringify(true));
           this.router.navigate(['login']);
         })
       );

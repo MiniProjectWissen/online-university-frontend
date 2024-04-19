@@ -47,6 +47,7 @@ export class AuthService {
           this.currentUser = response.user; // Assuming the user data is returned in the 'user' property of the response
           this.isAuthenticated = true;
 
+          console.log("authentication...")
           // Optionally, store user-related information in local storage or session storage
           //localStorage.setItem('accessToken', response.accessToken); // Example: Storing access token in local storage
           localStorage.setItem('userId', JSON.stringify(userData.email)); // Example: Storing user details in session storage
