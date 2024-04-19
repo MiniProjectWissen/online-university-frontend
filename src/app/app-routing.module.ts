@@ -12,6 +12,10 @@ import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.
 import { TestComponent } from './screens/test/test.component';
 import { StudentAttendanceComponent } from './screens/student-attendance/student-attendance.component';
 import { ForumComponent } from './screens/forum/forum.component';
+import { UpcomingTestComponent } from './screens/upcoming-test/upcoming-test.component';
+import { PreviousTestComponent } from './screens/previous-test/previous-test.component';
+import { TeacherTestComponent } from './screens/teacher-test/teacher-test.component';
+import { MarksComponent } from './screens/marks/marks.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
@@ -27,8 +31,11 @@ const routes: Routes = [
   { path: 'teacherCourse',component:TeacherCourseComponent,outlet: 'primary'},
   { path: 'test',component:TestComponent,outlet: 'primary'},
   { path: 'attendance',component:StudentAttendanceComponent,outlet: 'primary'},
-  { path: 'forum/:forumId',component:ForumComponent,outlet: 'primary'}
-
+  { path: 'forum/:forumId',component:ForumComponent,outlet: 'primary'},
+  { path: 'upcomingTest',component:UpcomingTestComponent,outlet: 'primary'},
+  { path: 'previousTest',component:PreviousTestComponent,outlet: 'primary'},
+  { path: 'teacherTest',component:TeacherTestComponent,outlet: 'primary'},
+  { path: 'marks',component:MarksComponent,outlet: 'primary'},
 ];
 
 @NgModule({

@@ -37,12 +37,12 @@ crossorigin="anonymous"></script>
           </div>
         </div>
         <div class="additional-attributes">
-            <p><strong>Attendance:</strong> 91% </p>
             <p><strong>Lectures Taken : </strong>{{es.selectedCourse.lectures_taken}}</p>
             <button type="button" routerLink="/test"  class="btn btn-primary" style="margin: 10px; padding: 10px;">Create Test</button>
             <button type="button" (click)="incrementLectureCnt()"  class="btn btn-primary" style="margin: 10px; padding: 10px;">Increment Lecture Count</button>
             <button type="button" routerLink="/attendance"  class="btn btn-primary" style="margin: 10px; padding: 10px;">Provide Attend</button>
-
+            <button type="button" routerLink="/teacherTest"  class="btn btn-primary" style="margin: 10px; padding: 10px;">Assign Test Marks</button>
+            <button type="button" (click)="loadSyllabus()" class="btn btn-primary">get syllabus</button>
           </div>
         <div class="course-content">
           <!-- Course Description -->
@@ -56,6 +56,10 @@ crossorigin="anonymous"></script>
               <div class="item-number">{{ item.number }}</div>
               <div class="item-title">{{ item.title }}</div>
             </div> -->
+            <div *ngIf="fileContent">
+              <iframe [src]="fileContent" width="100%" height="100%"></iframe>
+              {{fileContent}}
+            </div>
           </div>
         </div>
       </div>

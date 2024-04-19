@@ -32,6 +32,10 @@ import { StudentAttendanceComponent } from './screens/student-attendance/student
 import { ForumComponent } from './screens/forum/forum.component';
 import { ForumService } from './service/forum.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { PreviousTestComponent } from './screens/previous-test/previous-test.component';
+import { TeacherTestComponent } from './screens/teacher-test/teacher-test.component';
+import { MarksComponent } from './screens/marks/marks.component';
+import { UpcomingTestComponent } from './screens/upcoming-test/upcoming-test.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +55,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
          TeacherCourseComponent,
          TestComponent,
          StudentAttendanceComponent,
-         ForumComponent
+         ForumComponent,
+         UpcomingTestComponent,
+         PreviousTestComponent,
+         TeacherTestComponent,
+         MarksComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,

@@ -9,11 +9,19 @@ import { Test } from '../model/test.model';
   providedIn: 'root'
 })
 export class TeacherService {
-  teacher: Teacher = new Teacher()
+  teacher: Teacher = new Teacher();
+  testIdselectedByTeacher:number;
 
   url:String="http://localhost:8090";
 
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient,private router:Router) { 
+    this.testIdselectedByTeacher=0;
+  }
+
+  setTestIdSelectedByTeacher(testId:number)
+  {
+    this.testIdselectedByTeacher=testId;
+  }
 
   getTeacherByEmail(email:String | null = null): Observable<Teacher> {
     // Send a request to your backend API to fetch a student by ID
@@ -49,6 +57,25 @@ export class TeacherService {
   updateStudentAttendance(stud_id:number,course_id:number): Observable<any> {
     // Send a request to your backend API to update a student by ID
     return  this.http.put<any>(`http://localhost:8090/teacher/incrementAttendence/${stud_id}/${course_id}`,{})
+      .pipe(
+        catchError((error) => {
+          // Handle error here, such as displaying a toast message or logging the error
+          console.error('An error occurred while updating a student:', error);
+          // Rethrow the error to propagate it to the component that subscribed to this Observable
+          return throwError(()=> new Error(error));
+        })
+      );
+  }
+
+  getTestsByCours(courseId:number)
+  {
+    return this.http.get(this.url+"/test/get/alltests/"+courseId);
+  }
+
+  updateStudentMarks(stud_id:number,test_id:number,marks:number){
+    //return this.http.put(this.url+"/teacher/updateMarks/"+stud_id+"/"+test_id+"/"+marks);
+
+    return  this.http.put<any>(`http://localhost:8090/teacher/updateMarks/${stud_id}/${test_id}/${marks}`,{})
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
