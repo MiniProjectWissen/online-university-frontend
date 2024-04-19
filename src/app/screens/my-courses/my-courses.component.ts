@@ -15,6 +15,8 @@ export class MyCoursesComponent implements OnInit {
   myCourseList : Course[];
   newCourse :Course;
 
+  fileContent: File;
+
   constructor(public cs:CourseService,public ts:TeacherService) {
     this.myCourseSubscription = new Subscription();
     this.myCourseList = [];
@@ -37,6 +39,19 @@ export class MyCoursesComponent implements OnInit {
 
   }
 
+  onFileSelected(event:any): void {
+    this.fileContent = event.target.files[0];
+    
+  }
+
+  // readFile(selectedFile:File): void {
+  //   const reader = new FileReader();
+  //   reader.onload = () => {
+  //     this.fileContent = reader.result as string;
+  //   };
+  //   reader.readAsText(selectedFile);
+  // }
+
 
   submitCourse(form:NgForm){
     this.newCourse = form.value as Course;
@@ -44,8 +59,12 @@ export class MyCoursesComponent implements OnInit {
     this.newCourse.lectures_taken = 0;
     this.newCourse.sch_days = "1111111";
 
+    const formData = new FormData();
+    formData.append('file', this.fileContent);
+    this.cs.addFile(formData).subscribe((res)=>{
+      console.log(res);
+      this.newCourse.syllabus = res['msg'];
       console.log(this.newCourse);
-  
       this.cs.addCourse(this.newCourse).subscribe({
         "error":(error:any)=>{
             console.log('An error occurred while adding a course:', error);
@@ -55,6 +74,8 @@ export class MyCoursesComponent implements OnInit {
             this.loadTeacherCourses()
         }
       })
+    })
+    
     }
   
 }

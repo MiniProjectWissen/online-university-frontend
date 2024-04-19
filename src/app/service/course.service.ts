@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../model/course.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { StudentCourse } from '../model/student-course.model';
@@ -36,6 +36,8 @@ export class CourseService {
     this.getCourseById(courseid).subscribe((res)=>{
       this.selectedCourse=res as Course;
       console.log(this.selectedCourse+" selected Course id set")
+      console.log(this.selectedCourse.syllabus)
+      
 
       console.log(this.selectedCourse.teacher_id)
     
@@ -43,6 +45,7 @@ export class CourseService {
       this.teacher=res as Teacher;
       console.log("Teacher set successfully"+this.teacher.first_name)
     })
+    // this.downloadFile()
     
     });
 
@@ -73,6 +76,18 @@ export class CourseService {
     return this.http.get(this.url+"/course/get/"+courseId);
   }
 
+  downloadFile(): Observable<Blob> {
+    const url = this.selectedCourse.syllabus;
+    console.log(url)
+    return this.http.get(url, {
+      responseType: 'blob',
+    });
+  }
+
+  addFile(formData:FormData){
+    return this.http.post(this.url+"/course/uploadFile",formData);
+  }
+
   addCourse(course: Course): Observable<any> {
     // Send a request to your backend API to add a new student
     return this.http.post<any>('http://localhost:8090/course/add', course)
@@ -80,7 +95,7 @@ export class CourseService {
         
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
-          console.log('An error occurred while adding a student:', error.error);
+          console.log('An error occurred while adding a course:', error.error);
           // Rethrow the error to propagate it to the component that subscribed to this Observable
           return throwError(()=> new Error(error.error));
         }),tap((response:any)=>{
@@ -89,6 +104,7 @@ export class CourseService {
         })
       );
   }
+  
   
   incrementLectureCnt(courseId:number)
   {
