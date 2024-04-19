@@ -2,7 +2,6 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Message } from 'src/app/model/message.model';
 import { ForumService } from 'src/app/service/forum.service';
-import { MatInputModule } from '@angular/material/input';
 import { Student } from 'src/app/model/student.model';
 import { StudentService } from 'src/app/service/student.service';
 import { TeacherService } from 'src/app/service/teacher.service';
@@ -30,16 +29,46 @@ export class ForumComponent implements OnInit {
       this.forumId = params['forumId'];
       this.getMessages();
       this.getUser();
-      this.scrollToBottom();
+      
     });
   }
-
-  getMessages(): void {
-    this.forumService.receiveMessages(this.forumId)
-      .subscribe(messages => {
-        this.messages = messages;
-      });
+  
+  ngAfterViewInit(): void {
+    this.scrollToBottom();
   }
+
+  scrollToBottom(): void {
+    setTimeout(() => {
+      try {
+        const isScrolledToBottom = this.chatBody.nativeElement.scrollHeight - this.chatBody.nativeElement.clientHeight <= this.chatBody.nativeElement.scrollTop + 1;
+        if (!isScrolledToBottom) {
+          this.chatBody.nativeElement.scrollTop = this.chatBody.nativeElement.scrollHeight;
+        }
+      } catch(err) {
+        console.log(err);
+      }
+    }, 100); // Adjust the delay as needed
+  }
+
+  formatTimestamp(timestamp: Date): string {
+    const messageDate = new Date(timestamp);
+    const currentDate = new Date();
+  
+    // Check if the message date is different from the current date
+    const isDifferentDay = messageDate.getDate() !== currentDate.getDate() ||
+                           messageDate.getMonth() !== currentDate.getMonth() ||
+                           messageDate.getFullYear() !== currentDate.getFullYear();
+  
+    if (isDifferentDay) {
+      // If message date is different, display the full date
+      return messageDate.toLocaleDateString();
+    } else {
+      // If message date is the same, display time without seconds
+      return messageDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+  }
+
+  
 
   getUser():void{
     let storedString = localStorage.getItem('role');
@@ -97,11 +126,15 @@ export class ForumComponent implements OnInit {
     }
     
   }
-  scrollToBottom(): void {
-    try {
-      this.chatBody.nativeElement.scrollTop = this.chatBody.nativeElement.scrollHeight;
-    } catch(err) { }
+  
+
+  getMessages(): void {
+    this.forumService.receiveMessages(this.forumId)
+      .subscribe(messages => {
+        this.messages = messages;
+      });
   }
+  
 
   sendMessage(): void {
     const newMessageObj: Message = {
@@ -115,35 +148,11 @@ export class ForumComponent implements OnInit {
     this.forumService.sendMessage(newMessageObj)
       .subscribe(savedMessage => {
         // Add the saved message to the list
-        
         this.messages.push(savedMessage);
-        this.scrollToBottom();
+        this.newMessage = '';
+        this.scrollToBottom(); // Scroll to bottom after sending a message
       });
-
-
   }
 
-
-  formatTimestamp(timestamp: Date): string {
-    const messageDate = new Date(timestamp);
-    const currentDate = new Date();
   
-    // Check if the message date is different from the current date
-    const isDifferentDay = messageDate.getDate() !== currentDate.getDate() ||
-                           messageDate.getMonth() !== currentDate.getMonth() ||
-                           messageDate.getFullYear() !== currentDate.getFullYear();
-  
-    if (isDifferentDay) {
-      // If message date is different, display the full date
-      return messageDate.toLocaleDateString();
-    } else {
-      // If message date is the same, display time without seconds
-      return messageDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    }
-  }
-
-
-  
-
-
 }
