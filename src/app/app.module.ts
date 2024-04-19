@@ -31,6 +31,8 @@ import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.
 import { StudentAttendanceComponent } from './screens/student-attendance/student-attendance.component';
 import { UpcomingTestComponent } from './screens/upcoming-test/upcoming-test.component';
 import { PreviousTestComponent } from './screens/previous-test/previous-test.component';
+import { TeacherTestComponent } from './screens/teacher-test/teacher-test.component';
+import { MarksComponent } from './screens/marks/marks.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { PreviousTestComponent } from './screens/previous-test/previous-test.com
          TestComponent,
          StudentAttendanceComponent,
          UpcomingTestComponent,
-         PreviousTestComponent
+         PreviousTestComponent,
+         TeacherTestComponent,
+         MarksComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,
