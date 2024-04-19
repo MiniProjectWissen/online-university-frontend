@@ -18,7 +18,7 @@ export class CourseService {
   courseIdSelectedByTeacher:number;
   teacher:Teacher;
 
-  url:string ="http://localhost:8081";
+  url:string ="http://localhost:8090";
 
   constructor(private http: HttpClient) { 
     this.selectedCourse=new Course();
@@ -75,7 +75,7 @@ export class CourseService {
 
   addCourse(course: Course): Observable<any> {
     // Send a request to your backend API to add a new student
-    return this.http.post<any>('http://localhost:8081/course/add', course)
+    return this.http.post<any>('http://localhost:8090/course/add', course)
       .pipe(
         
         catchError((error) => {
@@ -97,7 +97,7 @@ export class CourseService {
 
    getAllCoursesByTeacher(teacherId:number): Observable<Course[]> {
     // Send a request to your backend API to fetch all students
-    return this.http.get<Course[]>(`http://localhost:8081/course/getCoursesByTeacher/${teacherId}`)
+    return this.http.get<Course[]>(`http://localhost:8090/course/getCoursesByTeacher/${teacherId}`)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
@@ -112,7 +112,7 @@ export class CourseService {
 
   addStudentCourse(StudentCourse:StudentCourse): Observable<any> {
     // Send a request to your backend API to add a new student
-    return this.http.post<any>('http://localhost:8081/student/enrollCourse', StudentCourse)
+    return this.http.post<any>('http://localhost:8090/student/enrollCourse', StudentCourse)
       .pipe(
         
         catchError((error) => {

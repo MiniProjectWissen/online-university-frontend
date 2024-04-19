@@ -11,6 +11,7 @@ import { AllCoursesComponent } from './screens/all-courses/all-courses.component
 import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.component';
 import { TestComponent } from './screens/test/test.component';
 import { StudentAttendanceComponent } from './screens/student-attendance/student-attendance.component';
+import { ForumComponent } from './screens/forum/forum.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '', pathMatch: 'full' },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'teacherCourse',component:TeacherCourseComponent,outlet: 'primary'},
   { path: 'test',component:TestComponent,outlet: 'primary'},
   { path: 'attendance',component:StudentAttendanceComponent,outlet: 'primary'},
+  { path: 'forum/:forumId',component:ForumComponent,outlet: 'primary'}
 
 ];
 

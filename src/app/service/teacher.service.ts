@@ -11,13 +11,13 @@ import { Test } from '../model/test.model';
 export class TeacherService {
   teacher: Teacher = new Teacher()
 
-  url:String="http://localhost:8081";
+  url:String="http://localhost:8090";
 
   constructor(private http: HttpClient,private router:Router) { }
 
   getTeacherByEmail(email:String | null = null): Observable<Teacher> {
     // Send a request to your backend API to fetch a student by ID
-    return this.http.get<Teacher>(`http://localhost:8081/teacher/get/email/${email}`)
+    return this.http.get<Teacher>(`http://localhost:8090/teacher/get/email/${email}`)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
@@ -30,7 +30,7 @@ export class TeacherService {
 
   updateTeacher(teacherId: number, teacher:Teacher): Observable<any> {
     // Send a request to your backend API to update a student by ID
-    return  this.http.put<any>(`http://localhost:8081/teacher/update/${teacherId}`, teacher)
+    return  this.http.put<any>(`http://localhost:8090/teacher/update/${teacherId}`, teacher)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
@@ -48,7 +48,7 @@ export class TeacherService {
 
   updateStudentAttendance(stud_id:number,course_id:number): Observable<any> {
     // Send a request to your backend API to update a student by ID
-    return  this.http.put<any>(`http://localhost:8081/teacher/incrementAttendence/${stud_id}/${course_id}`,{})
+    return  this.http.put<any>(`http://localhost:8090/teacher/incrementAttendence/${stud_id}/${course_id}`,{})
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error

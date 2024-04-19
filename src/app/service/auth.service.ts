@@ -33,11 +33,12 @@ export class AuthService {
   }
 
   login(userData: User): Observable<any> {
-    return this.http.post('http://localhost:8081/auth', userData)
+    return this.http.post('http://localhost:8090/auth', userData)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
           console.error('An error occurred:', error);
+          
           // Rethrow the error to propagate it to the component that subscribed to this Observable
           return throwError(()=> new Error(error.error));
         }),
@@ -50,6 +51,9 @@ export class AuthService {
           //localStorage.setItem('accessToken', response.accessToken); // Example: Storing access token in local storage
           localStorage.setItem('userId', JSON.stringify(userData.email)); // Example: Storing user details in session storage
           localStorage.setItem('role', JSON.stringify(userData.role));
+
+          
+          
           localStorage.setItem('isAuthenticated',JSON.stringify(true));
           this.router.navigate(['home']);
 

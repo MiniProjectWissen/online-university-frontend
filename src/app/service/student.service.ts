@@ -14,7 +14,7 @@ import { StudentTest } from '../model/student-test.model';
 export class StudentService {
   student:Student=new Student();
 
-  url:String="http://localhost:8081";
+  url:String="http://localhost:8090";
 
   constructor(private http: HttpClient,private router:Router) {
     
@@ -60,7 +60,7 @@ export class StudentService {
 
   updateStudent(studentId: number, student: Student): Observable<any> {
     // Send a request to your backend API to update a student by ID
-    return  this.http.put<any>(`http://localhost:8081/student/update/${studentId}`, student)
+    return  this.http.put<any>(`http://localhost:8090/student/update/${studentId}`, student)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
@@ -85,7 +85,7 @@ export class StudentService {
   // }
   getStudentByEmail(email:String | null = null): Observable<Student> {
     // Send a request to your backend API to fetch a student by ID
-    return this.http.get<Student>(`http://localhost:8081/student/getEmail/${email}`)
+    return this.http.get<Student>(`http://localhost:8090/student/getEmail/${email}`)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error
@@ -118,7 +118,7 @@ export class StudentService {
 
   getAllStudentsByCourse(courseId:number): Observable<Student[]> {
     // Send a request to your backend API to fetch all students
-    return this.http.get<Student[]>(`http://localhost:8081/student/getStudentsByCourse/${courseId}`)
+    return this.http.get<Student[]>(`http://localhost:8090/student/getStudentsByCourse/${courseId}`)
       .pipe(
         catchError((error) => {
           // Handle error here, such as displaying a toast message or logging the error

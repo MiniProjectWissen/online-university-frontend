@@ -29,6 +29,9 @@ import { AllCoursesComponent } from './screens/all-courses/all-courses.component
 import { TestComponent } from './screens/test/test.component';
 import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.component';
 import { StudentAttendanceComponent } from './screens/student-attendance/student-attendance.component';
+import { ForumComponent } from './screens/forum/forum.component';
+import { ForumService } from './service/forum.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -47,14 +50,15 @@ import { StudentAttendanceComponent } from './screens/student-attendance/student
          AllCoursesComponent,
          TeacherCourseComponent,
          TestComponent,
-         StudentAttendanceComponent
+         StudentAttendanceComponent,
+         ForumComponent
   ],
   imports: [
     BrowserModule,AppRoutingModule,FormsModule,HttpClientModule,BrowserAnimationsModule,
-    MatGridListModule,MatIconModule
+    MatGridListModule,MatIconModule,MatFormFieldModule
 
   ],
-  providers: [AuthService,StudentService,CourseService],
+  providers: [AuthService,StudentService,CourseService, ForumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
