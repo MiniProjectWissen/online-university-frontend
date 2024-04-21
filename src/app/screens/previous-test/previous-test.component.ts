@@ -30,7 +30,6 @@ export class PreviousTestComponent implements OnInit {
   getMarks(testId:number){
     this.ss.getMarksByStudIdTestId(this.ss.student.stud_id,testId).subscribe((res)=>{
       this.marks=res as number;
-
       console.log("Marks obbtained"+this.marks)
       alert("Marks :- "+this.marks)
     })
@@ -41,7 +40,7 @@ export class PreviousTestComponent implements OnInit {
       this.testList=res as Test[];
       console.log("successfully retrived tests")
       console.log(this.testList)
-
+    
       for(let t of this.testList){
         if (t.course_id==this.cs.courseIdSelectedByStudent)
           {

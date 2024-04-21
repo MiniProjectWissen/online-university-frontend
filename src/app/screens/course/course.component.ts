@@ -26,6 +26,34 @@ export class CourseComponent implements OnInit {
     
   }
 
+  loadSyllabus(){
+    this.es.downloadFile().subscribe(
+      // response => {
+      //   console.log("recieved file")
+      //   const blob = new Blob([response.body], { type: response.headers.get('content-type') });
+      //   const url = URL.createObjectURL(blob);
+      //   console.log(url)
+      //   this.fileContent = this.sanitizer.bypassSecurityTrustResourceUrl(url);    
+      //   console.log(this.fileContent) 
+      //  },
+      // error => {
+      //   console.error('Error downloading file:', error);
+      // }
+      (blob: Blob) => {
+        const downloadLink = document.createElement('a');
+        downloadLink.href = window.URL.createObjectURL(blob);
+        downloadLink.download = 'file.pdf'; // Change the file name if needed
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      },
+      error => {
+        console.error('Error downloading file:', error);
+      }
+    );
+  }
+
+
   
   findScheduleDays()
   {
@@ -35,7 +63,7 @@ export class CourseComponent implements OnInit {
   setAttendance()
   {
     console.log("attendance")
-    //console.log(this.ss.student.stud_id+" : "+this.es.selectedCourse.course_id+" "+this.es.courseIdSelectedByTeacher);
+    console.log(this.ss.student.stud_id+" : "+this.es.selectedCourse.course_id+" "+this.es.courseIdSelectedByTeacher);
     this.es.getCourseAttendance(this.ss.student.stud_id,this.es.courseIdSelectedByTeacher).subscribe((res)=>{
       this.attendance=res;
       console.log("course attendance got")

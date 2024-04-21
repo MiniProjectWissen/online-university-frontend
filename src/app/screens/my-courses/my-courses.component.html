@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <h3 class="card-title">{{course.title}}</h3>
                     <h4 class="card-subtitle mb-2 text-muted">Instructor : {{course.teacher_id}}</h4>
-                    <h5>Duration : {{course.start_date}} - {{course.end_date}}</h5>
+                    <h5>Duration : {{course.start_date | date}} - {{course.end_date | date}}</h5>
                     <h5 class="card-text">{{course.description}}</h5>
                     <button routerLink="/teacherCourse" (click)="cs.setSelectedCourse(course.course_id)" class="btn btn-primary">View Details</button>
                 </div>
@@ -51,10 +51,10 @@
                   <input id="syllabus" type="file" (change)="onFileSelected($event)" name="syllabus" class="validate" required >
                   <label for="syllabus">syllabus</label>
                 </div>
-                <div class="input-field">
+                <!-- <div class="input-field">
                   <input id="forum_id" type="number" name="forum_id" class="validate" [(ngModel)]="newCourse.forum_id" required>
                   <label for="forum_id">forum_id</label>
-                </div>
+                </div> -->
                 <div class="input-field">
                   <input id="start_date" type="date" name="start_date" class="validate" [(ngModel)]="newCourse.start_date">
                   <label for="start_date">start_date</label>

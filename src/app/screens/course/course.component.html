@@ -39,9 +39,9 @@ crossorigin="anonymous"></script>
         <div class="additional-attributes">
             <p><strong>Attendance:</strong> {{attendance }} </p>
             <p><strong>Lectures Taken : </strong>{{es.selectedCourse.lectures_taken}}</p>
-            <button type="button" class="btn btn-info" style="margin: 10px; padding: 10px;" (click)="goToForum()">Forum</button>
             <button type="button" routerLink="/upcomingTest" (click)="es.setSelectedCourseByStudent(es.selectedCourse.course_id)" class="btn btn-primary" style="margin: 10px; padding: 10px;">Upcoming Test</button>
             <button type="button" routerLink="/previousTest" (click)="es.setSelectedCourseByStudent(es.selectedCourse.course_id)" class="btn btn-success" style="margin: 10px; padding: 10px;">Previous Test</button>
+            <button type="button" class="btn btn-info" style="margin: 10px; padding: 10px;">Forum</button>
           </div>
         <div class="course-content">
           <!-- Course Description -->
@@ -49,17 +49,7 @@ crossorigin="anonymous"></script>
           <p class="course-description">{{ es.selectedCourse.description }}</p>
           <!-- Course Curriculum -->
           <h2>Curriculum</h2>
-          <div class="curriculum-items">
-            <!-- <div *ngIf="es.selectedCourse.syllabus">
-              <h2>File Content:</h2>
-              <pre>{{ es.selectedCourse.syllabus }}</pre>
-            </div> -->
-            <!-- <p class="course-description">{{ es.selectedCourse.syllabus }}</p> -->
-            <!-- <div *ngFor="let item of course.curriculum" class="curriculum-item">
-              <div class="item-number">{{ item.number }}</div>
-              <div class="item-title">{{ item.title }}</div>
-            </div> -->
-          </div>
+          <button type="button" (click)="loadSyllabus()" class="btn btn-primary">get syllabus</button>
         </div>
       </div>
       

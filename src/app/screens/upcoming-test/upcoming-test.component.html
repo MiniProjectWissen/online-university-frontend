@@ -15,11 +15,10 @@
     <div class="container">
       <div class="grid">
           <div *ngFor="let test of finalTestList">
-              <h3 class="card-title">Test Content :- {{test.test_content}}</h3>
-              <h4 class="card-subtitle mb-2 text-muted">Total Marks : {{test.total_marks}}</h4>
+                <h4 class="card-subtitle mb-2 text-muted">Total Marks : {{test.total_marks}}</h4>
               <h5>Duration : {{test.start_time | date}} - {{test.end_time | date}}</h5>
               <!-- <a href="#" class="btn btn-primary">View Now</a> -->
-              <button class="btn btn-primary">Attempt Test</button>
+              <button class="btn btn-primary"><a href="https://forms.gle/WCQMeyM3gobJWxYNA" style="color: white;">Attempt test</a></button>
           </div>
       </div>
   </div>
