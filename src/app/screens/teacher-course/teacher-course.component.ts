@@ -3,6 +3,7 @@ import { CourseService } from 'src/app/service/course.service';
 import { TeacherService } from 'src/app/service/teacher.service';
 import { Test } from 'src/app/model/test.model';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher-course',
@@ -12,7 +13,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class TeacherCourseComponent implements OnInit {
   
   fileContent:SafeResourceUrl;
-  constructor(public es:CourseService,private ts:TeacherService,private sanitizer: DomSanitizer) { 
+  constructor(public es:CourseService,private ts:TeacherService,private sanitizer: DomSanitizer, private router:Router) { 
     
   }
 
@@ -53,6 +54,13 @@ export class TeacherCourseComponent implements OnInit {
         console.error('Error downloading file:', error);
       }
     );
+  }
+
+  goToForum(): void {
+    // Navigate to the forum page
+    
+
+    this.router.navigate(['/forum', this.es.selectedCourse.forum_id]);
   }
 
   }

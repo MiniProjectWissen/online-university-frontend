@@ -45,7 +45,9 @@ export class CourseComponent implements OnInit {
 
   goToForum(): void {
     // Navigate to the forum page
-    this.router.navigate(['/forum', -1463840999]);
+    
+
+    this.router.navigate(['/forum', this.es.selectedCourse.forum_id]);
   }
 
 
